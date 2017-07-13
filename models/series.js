@@ -10,4 +10,12 @@ var seriesSchema = mongoose.Schema({
 
 var Series = mongoose.model('Serie', seriesSchema);
 
+Series.addBook = function(seriesId, bookId, callback){
+
+};
+
+Series.saveSeries = function(properties, callback){
+
+};
+
 module.exports = Series;
