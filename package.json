@@ -4,7 +4,9 @@
   "author": "Alexandra Seriachenko <salexa92@gmail.com>",
   "main": "server.js",
   "dependencies": {
+    "body-parser": "^1.17.2",
     "express": "^4.15.3",
+    "express-validator": "^3.2.1",
     "jade": "^1.11.0",
     "mongodb": "^2.2.30",
     "mongoose": "^4.11.1"
