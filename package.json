@@ -2,9 +2,10 @@
   "name": "book-series-organizer",
   "version": "0.0.1",
   "author": "Alexandra Seriachenko <salexa92@gmail.com>",
-  "main": "index.js",
+  "main": "server.js",
   "dependencies": {
     "express": "^4.15.3",
-    "mongodb": "^2.2.30"
+    "mongodb": "^2.2.30",
+    "mongoose": "^4.11.1"
   }
 }
