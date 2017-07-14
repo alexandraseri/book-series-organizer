@@ -36,4 +36,26 @@ Book.saveBook = function(properties, callback){
     });
 };
 
+Book.updateBook = function(id, properties, callback){
+    var query = {_id: id};
+    Book.findOne(query, function(error, book){
+        if(error){
+            callback(error, null);
+        } else {
+            book.update(properties, function(error){
+                if(error){
+                    callback(error, null);
+                } else {
+                    Book.findOne(query, callback)
+                }
+            });
+        }
+    });
+};
+
+Book.removeBook = function(bookId, callback){
+    var query = {_id: bookId};
+    Book._findOneAndRemove(query, callback);
+};
+
 module.exports = Book;
