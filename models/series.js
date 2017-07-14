@@ -2,7 +2,7 @@ var mongoose = requite('mongoose');
 
 var seriesSchema = mongoose.Schema({
     name: String,
-    books: [ObjectId],
+    books: [{type: mongoose.Schema.Types.ObjectId, ref: 'Book'}],
     published: Boolean,
     totalPages: Number,
     avgScore: Number

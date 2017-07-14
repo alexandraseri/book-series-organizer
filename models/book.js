@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var Series = require('./series');
 
 var bookSchema = mongoose.Schema({
-    series: ObjectId,
+    series: {type: mongoose.Schema.Types.ObjectId, ref: 'Serie'},
     name: String,
     pages: Number,
     stars: Number,
