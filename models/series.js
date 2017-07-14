@@ -1,11 +1,8 @@
-var mongoose = requite('mongoose');
+var mongoose = require('mongoose');
 
 var seriesSchema = mongoose.Schema({
     name: String,
-    books: [{type: mongoose.Schema.Types.ObjectId, ref: 'Book'}],
-    published: Boolean,
-    totalPages: Number,
-    avgScore: Number
+    books: [{type: mongoose.Schema.Types.ObjectId, ref: 'Book'}]
 });
 
 var Series = mongoose.model('Serie', seriesSchema);
