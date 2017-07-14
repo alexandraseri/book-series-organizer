@@ -9,6 +9,10 @@ router.get('/', function(req, res){
     res.render('index', {})
 });
 
+router.get('/addSeries', function(req, res){
+    res.render('addSeries', {})
+});
+
 router.get('/getSeriesList', function(req, res){
     Series.getSeriesList(function(error, list){
         if(error){
@@ -115,11 +119,53 @@ router.post('/book/remove', function(req, res){
 });
 
 router.post('/series/save', function(req, res){
+    var series = {
+        name: req.body.name
+    };
 
+    req.checkBody('name', 'Series\'s name is required').notEmpty();
+
+    var errors = req.validationErrors();
+
+    if(errors){
+        console.log(errors);
+        return res.send({errors: errors});
+    } else {
+        Series.saveSeries(series, function(error){
+            if(error){
+                console.log(error);
+                return res.send({errors: [error]});
+            } else {
+                return res.sendStatus(200);
+            }
+        })
+    }
 });
 
 router.post('/series/update', function(req, res){
+    var id = req.body.id;
+    var series = {
+        name: req.body.name
+    };
 
+    req.checkBody('id', 'Series\'s id is required').notEmpty();
+    req.checkBody('name', 'Series\'s name is required').notEmpty();
+
+    var errors = req.validationErrors();
+
+    if(errors){
+        console.log(errors);
+        return res.send({errors: errors});
+    } else {
+        Series.updateSeries(id, series, function(error){
+            if(error){
+                console.log(error);
+                return res.send({errors: [error]});
+            } else {
+                return res.sendStatus(200);
+            }
+        })
+    }
 });
 
 router.post('/series/removeBook', function(req, res){
