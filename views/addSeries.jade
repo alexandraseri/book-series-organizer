@@ -9,7 +9,11 @@ html(ng-app='books-app')
             div.header
 
             div.buttons
-                button(ng-click='addSeries()') Add new series
-                button(ng-click='addBook()') Add new book
+                form
+                    span Series Name:
+                    input(name='seriesName' type='text' placeholder='Please enter a series name' ng-model='seriesName')
+                    br
+                    button(ng-click='createSeries()') Save
 
 
+v
