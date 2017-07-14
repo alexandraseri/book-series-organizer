@@ -25,6 +25,7 @@ server.use('/scripts', express.static(__dirname + '/bower_components'));
 
 /******** Express Validator ********/
 server.use(bodyParser.urlencoded({ extended: true }));
+server.use(bodyParser.json());
 server.use(expressValidator([{
     errorFormatter: function(param, msg, value) {
         var namespace = param.split('.')
