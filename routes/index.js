@@ -13,6 +13,14 @@ router.get('/addSeries', function(req, res){
     res.render('addSeries', {})
 });
 
+router.get('/addBook', function(req, res){
+    res.render('addBook', {})
+});
+
+router.get('/seriesList', function(req, res){
+    res.render('seriesList', {})
+});
+
 router.get('/getSeriesList', function(req, res){
     Series.getSeriesList(function(error, list){
         if(error){
